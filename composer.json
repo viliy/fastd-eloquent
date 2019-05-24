@@ -1,0 +1,24 @@
+{
+    "name": "zhaqq/fastd-eloquent",
+    "description": "FastD Eloquent.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.1",
+        "fastd/fastd": "^3.0",
+        "illuminate/database": "^5.5",
+        "illuminate/pagination": "^5.5",
+        "illuminate/events": "^5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Zhaqq\\Eloquent\\": "src"
+        },
+        "files": [
+            "src/helper.php"
+        ]
+    }
+}
