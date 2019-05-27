@@ -40,7 +40,7 @@ class EloquentServiceProvider implements ServiceProviderInterface
     protected function setConnections(Container $container)
     {
         $configs = $container->get('config')->get('database', []);
-        $this->capsule->getDatabaseManager()->setDefaultConnection(array_key_first($configs));
+        $this->capsule->getDatabaseManager()->setDefaultConnection(current(array_keys($configs)));
 
         foreach ($configs as $name => $config) {
             if (isset($config['read'])) {
