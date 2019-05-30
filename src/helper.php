@@ -4,6 +4,7 @@ use FastD\Http\JsonResponse;
 use FastD\Http\Response;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Database\Connection;
+use Zhaqq\Eloquent\Model\Database;
 
 if (!function_exists('eloquent_db')) {
     /**
@@ -55,4 +56,15 @@ if (!function_exists('event')) {
     {
         return app()->get('event');
     }
+}
+
+
+/**
+ * @param string $key
+ *
+ * @return Database
+ */
+function db_pool($key = 'default')
+{
+    return app()->get('db_pool')->initPool()->pop($key);
 }

@@ -1,14 +1,14 @@
 <?php
 
-namespace Zqhong\FastdEloquent\Database;
+namespace Zhaqq\Eloquent\Database;
 
-use Illuminate\Database\MySqlConnection as BaseMySQLConn;
+use Illuminate\Database\MySqlConnection as BaseMySQLConnection;
 use PDO;
 
 /**
  * @package Zqhong\FastdEloquent
  */
-class MySQLConnection extends BaseMySQLConn
+class MySQLConnection extends BaseMySQLConnection
 {
     /**
      * Bind values to their parameters in the given statement.
@@ -22,7 +22,6 @@ class MySQLConnection extends BaseMySQLConn
         foreach ($bindings as $key => $value) {
             $statement->bindValue(
                 is_string($key) ? $key : $key + 1, $value,
-                // 某些情况下，如果使用 PDO::PARAM_INT，当 $value 大于2147483647会出问题
                 PDO::PARAM_STR
             );
         }
